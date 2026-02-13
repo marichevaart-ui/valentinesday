@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Pangolin', cursive;
+}
+
+body {
+  height: 100vh;
+  background: #DFD9CD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #620107;
+  overflow: hidden;
+}
+
+/* Купидон */
+
+.cupid {
+  position: absolute;
+  top: 40px;
+  width: 240px;
+  transform: translte(30px,0);
+  animation: floatCupid 4s ease-in-out infinite;
+}
+
+@keyframes floatCupid {
+  0% { transform: translate(30px,0px); }
+  50% { transform: translate(30px,10px); }
+  100% { transform: translate(30px,0px); }
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
+}
+
+h1 {
+  font-size: clamp(24px, 6vw, 36px);
+  margin-bottom: 40px;
+}
+
+.buttons {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 260px;
+  margin: 0 auto;
+}
+
+button {
+  width: 120px;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 16px;
+  font-size: clamp(16px, 4vw, 20px);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform .25s ease;
+  z-index: 2;
+}
+
+.yes {
+  background: #620107;
+  color: #DFD9CD;
+}
+
+.no {
+  background: #DFD9CD;
+  color: #620107;
+  border: 2px solid #620107;
+}
+
+/* POPUP */
+
+.popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 2;
+}
+
+/* ВОТ ТУТ ОН ТЕПЕРЬ КРАСНЫЙ */
+
+.popup-content {
+  position: relative;
+  background: #620107;
+  color: #DFD9CD;
+  padding: 22px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 320px;
+  width: 100%;
+  animation: scaleIn 0.35s ease;
+  z-index: 2;
+}
+
+.popup-content img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #DFD9CD;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* конфетти */
+
+.heart-confetti {
+  position: fixed;
+  top: -50px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: fall linear forwards;
+  z-index: 1;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+/* плавающие сердечки внизу */
+
+.floating-hearts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -20px;
+  animation: floatUp linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
+
+/* слой фоновых сердечек */
+
+.floating-hearts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -20px;
+  animation: floatUp linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
+
+/* эффект резкого "высыпания" сверху */
+
+.top-burst-heart {
+  position: fixed;
+  top: -40px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: burstFall linear forwards;
+}
+
+@keyframes burstFall {
+  to {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
